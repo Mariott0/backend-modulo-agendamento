@@ -10,20 +10,17 @@ export class ProfissionalService {
 
   private mapToEntity(profissional: any): Profissional {
     return {
-
       id: profissional.id,
       nome: profissional.nome,
       telefone: profissional.telefone,
       idade: profissional.idade,
       endereco: profissional.endereco,
       especialidade: profissional.especialidade,
-
     }
   }
 
   async create(createProfissionalDto: CreateProfissionalDto): Promise<Profissional> {
     const profissional = await this.prisma.profissional.create({
-
       data: {
         nome: createProfissionalDto.nome,
         telefone: createProfissionalDto.telefone,
@@ -67,9 +64,7 @@ export class ProfissionalService {
       }
 
     })
-
-
-    return this.mapToEntity(profissional);
+    return this.mapToEntity(profissionalAtualizado);
   }
 
   async remove(id: string): Promise<Profissional> {
